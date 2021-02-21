@@ -6,12 +6,12 @@
     <parent>
 		<groupId>com</groupId>
         <artifactId>carlease</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
 	</parent>
 
     <groupId>com.carlease</groupId>
 	<artifactId>vehicle-list</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
     <name>vehicle-list</name>
     <description>Car lease vehicle list service</description>
 	<properties>

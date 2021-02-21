@@ -1,0 +1,1 @@
+web: java -jar spring-boot-vehicle-service/target/vehicle-list-0.0.1.jar
