@@ -33,7 +33,7 @@
         
         <!-- client app dependancy -->
         <dependency>
-            <groupId>com.leaseplan</groupId>
+            <groupId>com.carlease</groupId>
             <artifactId>react-app</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
