@@ -29,7 +29,6 @@ class ListVehicle extends Component {
         this.setState({
           vehicles: response.data
         });
-        console.log(response.data);
       })
       .catch(e => {
         console.log(e);
@@ -38,7 +37,6 @@ class ListVehicle extends Component {
 
   render() {
     const { pageTitle, optionsTitle, editLabel, vehicles } = this.state;
-    console.log(this.state);
 
     return (
       <div>

@@ -56,7 +56,6 @@ class AddVehicle extends Component {
   saveVehicleDetails() {
     VehicleService.addVehicle(this.state.data)
       .then(response => {
-        console.log(response);
         if (response.status === 200) {
           const defaultData = this.getDefaultData();
           this.setState(prevState => {
@@ -70,13 +69,11 @@ class AddVehicle extends Component {
                 message: response.data
               }
             };
-            console.log(newState);
             return newState;
           });
         }
       })
       .catch(e => {
-        console.log(e.response);
         this.setState(prevState => {
           const newState = {
             validated: false,
@@ -85,7 +82,6 @@ class AddVehicle extends Component {
               message: e.response.data.message
             }
           };
-          console.log(newState);
           return newState;
         });
       });
@@ -97,7 +93,6 @@ class AddVehicle extends Component {
       const newState = {
         data: {...prevState.data, make: { name: value }}
       };
-      console.log(newState);
       return newState;
     });
   }
@@ -108,7 +103,6 @@ class AddVehicle extends Component {
       const newState = {
         data: {...prevState.data, model: { name: value}}
       };
-      console.log(newState);
       return newState;
     });
   }
@@ -119,7 +113,6 @@ class AddVehicle extends Component {
       const newState = {
         data: {...prevState.data, name: value}
       };
-      console.log(newState);
       return newState;
     });
   }
@@ -130,7 +123,6 @@ class AddVehicle extends Component {
       const newState = {
         data: {...prevState.data, basePrice: value}
       };
-      console.log(newState);
       return newState;
     });
   }
@@ -141,7 +133,6 @@ class AddVehicle extends Component {
       const newState = {
         data: {...prevState.data, description: value}
       };
-      console.log(newState);
       return newState;
     });
   }
@@ -160,7 +151,6 @@ class AddVehicle extends Component {
       const newState = {
         data: {...prevState.data, modelOptions: modelOptions}
       };
-      console.log(newState);
       return newState;
     });
   }
@@ -168,21 +158,18 @@ class AddVehicle extends Component {
   onChangeModelOption(event) {
     this.setState(prevState => {
       const id = event.target.dataset.id;
-      console.log(id);
       const { value } = event.target;
       const modelOptions = [...prevState.data.modelOptions];
       modelOptions[id][event.target.dataset.key] = value;
       const newState = {
         data: {...prevState.data, modelOptions: modelOptions}
       };
-      console.log(newState);
       return newState;
     });
   }
 
   handleSubmit(event) {
     const form = event.currentTarget;
-    console.log(form.checkValidity());
     event.preventDefault();
     event.stopPropagation();
     if (form.checkValidity() === true) {
@@ -200,7 +187,6 @@ class AddVehicle extends Component {
 
   render() {
     const { labels, data, validated, alertDetails } = this.state;
-    console.log(this.state);
 
     return (
       <div>

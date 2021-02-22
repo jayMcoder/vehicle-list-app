@@ -11,8 +11,6 @@ class EditVehicle extends Component {
   constructor(props) {
     super(props);
 
-    console.log(this.props.match.params.modelEditionId);
-
     this.getContent = this.getContent.bind(this);
     this.getVehicleDetailsToEdit = this.getVehicleDetailsToEdit.bind(this);
     this.onChangeModelEditionBasePrice = this.onChangeModelEditionBasePrice.bind(this);
@@ -46,7 +44,6 @@ class EditVehicle extends Component {
         this.setState({
           data: response.data
         });
-        console.log(response.data);
       })
       .catch(e => {
         this.setAlertDetail("danger", e.response.data.message);
@@ -59,7 +56,6 @@ class EditVehicle extends Component {
       const newState = {
         data: {...prevState.data, basePrice: value}
       };
-      console.log(newState);
       return newState;
     });
   }
@@ -70,7 +66,6 @@ class EditVehicle extends Component {
       const newState = {
         data: {...prevState.data, description: value}
       };
-      console.log(newState);
       return newState;
     });
   }
@@ -78,13 +73,11 @@ class EditVehicle extends Component {
   saveVehicleDetails() {
     VehicleService.editVehicle(this.props.match.params.modelEditionId, this.state.data)
       .then(response => {
-        console.log(response);
         if (response.status === 200) {
           this.setSubmitted(true);
         }
       })
       .catch(e => {
-        console.log(e.response);
         this.setValidated(false);
         this.setAlertDetail("danger", e.response.data.message);
       });
@@ -98,7 +91,6 @@ class EditVehicle extends Component {
           message: message
         }
       };
-      console.log(newState);
       return newState;
     });
   }
@@ -111,7 +103,6 @@ class EditVehicle extends Component {
 
   handleSubmit(event) {
     const form = event.currentTarget;
-    console.log(form.checkValidity());
     event.preventDefault();
     event.stopPropagation();
     if (form.checkValidity() === true) {
